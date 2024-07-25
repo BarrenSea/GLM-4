@@ -5,7 +5,7 @@ extern crate intel_mkl_src;
 extern crate accelerate_src;
 
 use clap::Parser;
-use codegeex4_candle::codegeex4::*;
+use glm4_candle::glm4::*;
 use owo_colors::{self, OwoColorize};
 use std::io::BufRead;
 use std::io::BufReader;
@@ -63,7 +63,7 @@ impl TextGeneration {
         let reader = BufReader::new(stdin);
         // 从标准输入读取prompt
         for line in reader.lines() {
-            println!("[欢迎使用Codegeex4,请输入prompt]");
+            println!("[欢迎使用glm4,请输入prompt]");
             let line = line.expect("Failed to read line");
             let tokens = self.tokenizer.encode(line, true).expect("tokens error");
             if tokens.is_empty() {
@@ -232,7 +232,7 @@ fn main() -> Result<(), ()> {
 
     let model_id = match args.model_id {
         Some(model_id) => model_id.to_string(),
-        None => "THUDM/codegeex4-all-9b".to_string(),
+        None => "THUDM/glm4-all-9b".to_string(),
 p    };
     let revision = match args.revision {
         Some(rev) => rev.to_string(),
@@ -242,7 +242,7 @@ p    };
     let tokenizer_filename = match args.tokenizer {
         Some(file) => std::path::PathBuf::from(file),
         None => api
-            .model("THUDM/codegeex4-all-9b".to_string())
+            .model("THUDM/glm4-all-9b".to_string())
             .get("tokenizer.json")
             .unwrap(),
     };
@@ -254,7 +254,7 @@ p    };
     };
     let tokenizer = Tokenizer::from_file(tokenizer_filename).expect("Tokenizer Error");
     let start = std::time::Instant::now();
-    let config = Config::codegeex4();
+    let config = Config::glm4();
     let device = candle_examples::device(args.cpu).unwrap();
     let dtype = if device.is_cuda() {
         DType::BF16

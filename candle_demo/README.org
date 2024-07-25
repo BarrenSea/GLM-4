@@ -1,20 +1,20 @@
-* candle-codegeex4_9b
-THUDM/CodeGeeX4 is a versatile model for all AI software development scenarios, including code completion, code interpreter, web search, function calling, repository-level Q&A and much more.
+* candle-glm4_9b
+THUDM/glm4 is a versatile model for all AI software development scenarios, including code completion, code interpreter, web search, function calling, repository-level Q&A and much more.
 [[../resources/candle_example.png][file:../resources/candle_example.png]]
 
-- [[https://github.com/THUDM/CodeGeeX4][Github]]
+- [[https://github.com/THUDM/glm4][Github]]
 - [[https://codegeex.cn/][HomePage]]
-- [[https://huggingface.co/THUDM/codegeex4-all-9b][huggingface]]  
-- [[https://github.com/huggingface/candle/blob/main/candle-examples/examples/codegeex4-9b/README.org][Candle]]
+- [[https://huggingface.co/THUDM/glm4-all-9b][huggingface]]
+- [[https://github.com/huggingface/candle/blob/main/candle-examples/examples/glm4-9b/README.org][Candle]]
 ** Running with ~cuda~
 
 #+begin_src shell
-  cargo run --example codegeex4-9b --release --features cuda   --  --sample-len 300
+  cargo run --example glm4-9b --release --features cuda   --  --sample-len 300
 #+end_src
 
 ** Running with ~cpu~
 #+begin_src shell
-  cargo run --example codegeex4-9b --release --cpu   --  --sample-len 300
+  cargo run --example glm4-9b --release --cpu   --  --sample-len 300
 #+end_src
 
 ** Output_Example
